@@ -198,7 +198,7 @@ public extension Date {
     }
     
     
-    private func logicalLocalizedStringFromFormat(format: String, value: Int) -> String{
+    public func logicalLocalizedStringFromFormat(format: String, value: Int) -> String{
         #if os(Linux)
             let localeFormat = String.init(format: format, getLocaleFormatUnderscoresWithValue(Double(value)) as! CVarArg)  // this may not work, unclear!!
         #else
@@ -209,7 +209,7 @@ public extension Date {
     }
     
     
-    private func getLocaleFormatUnderscoresWithValue(_ value: Double) -> String{
+    public func getLocaleFormatUnderscoresWithValue(_ value: Double) -> String{
         let localCode = Bundle.main.preferredLocalizations[0]
         if (localCode == "ru" || localCode == "uk") {
             let XY = Int(floor(value).truncatingRemainder(dividingBy: 100))
@@ -234,7 +234,7 @@ public extension Date {
     
     // MARK: - Localization
     
-    private func DateToolsLocalizedStrings(_ string: String) -> String {
+    public func DateToolsLocalizedStrings(_ string: String) -> String {
         //let classBundle = Bundle(for:TimeChunk.self as! AnyClass.Type).resourcePath!.appending("DateTools.bundle")
         
         //let bundelPath = Bundle(path:classBundle)!
